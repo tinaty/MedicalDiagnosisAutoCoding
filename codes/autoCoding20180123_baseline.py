@@ -20,24 +20,14 @@ import matplotlib.pyplot as plt
 import os
 import random
 
-
-
 #=========================
-#=========================
-# part 1:
-# data preprocessing
-#
-#=========================
-
-#=========================
-# part 1.1
-# sentence segment: jieba
-#=========================
-
-
-#=========================
-# part 1.2
-# word embedding: word2vec
+# outline:
+# step 1: 分词
+# -> 词向量模型的训练(基于语料库): gensim.models.Word2Vec 
+# -> 对样本数据进行分词: jieba.cut()
+# -> 对样本数据进行 word embedding: 加载词向量模型
+# -> 标签进行one-hot encoding
+# -> 开始RNN模型训练
 #=========================
 
 ## 读取已分词的语料库
@@ -81,7 +71,7 @@ def load_data_and_labels(filePath):
     return [x_text,y]
 # 对样本数据进行分词
 [x,y]=load_data_and_labels("./data/dataSytStandard_DL.xlsx")
-'''
+
 #测试集
 #[data_test,label_test]=load_data_and_labels("./data/testDL.xlsx")
 
@@ -469,4 +459,3 @@ with tf.Session() as sess:
 run_time = time.time() - t0
 print(label_len)
 print('run time: %.3f s' % run_time)
-'''
